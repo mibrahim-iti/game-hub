@@ -1,4 +1,4 @@
-import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from "react-icons/fa";
+import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid, FaNeos } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
@@ -20,6 +20,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     ios: MdPhoneIphone,
     web: BsGlobe,
     android: FaAndroid,
+    "neo-geo": FaNeos,
   };
   return (
     <HStack marginY={1}>
