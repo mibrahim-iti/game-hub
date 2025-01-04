@@ -1,0 +1,29 @@
+If you faced next issue:
+
+Chakra CLI ⚡️
+file:///home/a391042/.npm/_npx/de2e382d70c335ff/node_modules/node-fetch/src/index.js:108
+			reject(new FetchError(`request to ${request.url} failed, reason: ${error.message}`, 'system', error));
+			       ^
+
+FetchError: request to https://chakra-v3-docs.vercel.app/compositions/index.json failed, reason: self-signed certificate in certificate chain
+    at ClientRequest.<anonymous> (file:///home/a391042/.npm/_npx/de2e382d70c335ff/node_modules/node-fetch/src/index.js:108:11)
+    at ClientRequest.emit (node:events:514:28)
+    at TLSSocket.socketErrorListener (node:_http_client:495:9)
+    at TLSSocket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  type: 'system',
+  errno: 'SELF_SIGNED_CERT_IN_CHAIN',
+  code: 'SELF_SIGNED_CERT_IN_CHAIN',
+  erroredSysCall: undefined
+}
+
+
+while running the next command: 
+>>> npx @chakra-ui/cli snippet add
+
+So temporary solution on local machine (not production) is to disable SSL verification, 
+you can set the NODE_TLS_REJECT_UNAUTHORIZED environment variable to 0 by next command:
+
+>>> export NODE_TLS_REJECT_UNAUTHORIZED=0
